@@ -24,6 +24,7 @@ public class NutrienteReferencia {
     @Column(name = "unidade_padrao")
     private String unidadeMedida;
 
+    //Saber se é um mineral ou uma vitamina
     @Enumerated(EnumType.STRING)
     private TipoNutriente tipo;
 }
