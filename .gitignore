@@ -6,9 +6,3 @@
 .classpath
 .settings/
 
-# 2. Arquivos de persistencia que NAO devem ir para o GitHub
-
-# Ignora o arquivo de configuracao do JPA (SE ele contiver senhas)
-src/main/resources/META-INF/persistence.xml
-
-pom.xml 
