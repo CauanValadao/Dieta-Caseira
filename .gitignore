@@ -1,2 +1,8 @@
-# Arquivos de configuracao de persistencia -> adicione aqui depois de configurar
-# src/main/resources/META-INF/persistence.xml
+# 1. Pastas de compilacao e IDEs (como recomendado anteriormente)
+/bin/
+/target/
+/.idea/
+.project
+.classpath
+.settings/
+
