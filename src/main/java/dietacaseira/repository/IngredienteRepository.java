@@ -6,7 +6,7 @@ import dietacaseira.model.Ingrediente;
 import java.util.List;
 
 @Repository
-public interface IngredienteRepository extends JpaRepository<Ingrediente, Long> {
+public interface IngredienteRepository extends JpaRepository<Ingrediente, Integer> {
 
     // Busca ingredientes que contenham o texto (para o autocomplete da dieta)
     List<Ingrediente> findByNomeContainingIgnoreCase(String nome);

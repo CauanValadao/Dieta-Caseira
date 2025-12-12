@@ -7,7 +7,7 @@ import dietacaseira.model.MedicoVeterinario;
 import java.util.List;
 
 @Repository
-public interface PetRepository extends JpaRepository<Pet, Long> {
+public interface PetRepository extends JpaRepository<Pet, Integer> {
 
     // Busca todos os pets vinculados a um médico específico (para preencher a tabela da tela principal)
     List<Pet> findByMedico(MedicoVeterinario medico);

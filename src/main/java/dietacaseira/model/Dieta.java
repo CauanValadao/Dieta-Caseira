@@ -28,7 +28,7 @@ public class Dieta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dieta")
-    private Long id; 
+    private Integer id; 
 
     @Column(nullable = false, length = 45)
     private String tipo;

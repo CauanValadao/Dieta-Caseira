@@ -23,7 +23,7 @@ public class NutrienteReferencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_nutriente_referencia")
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false, length = 45)
     private String nome;

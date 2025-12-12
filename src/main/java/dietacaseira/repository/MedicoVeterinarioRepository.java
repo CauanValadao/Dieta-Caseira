@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import dietacaseira.model.MedicoVeterinario;
 
 @Repository
-public interface MedicoVeterinarioRepository extends JpaRepository<MedicoVeterinario, Long> {
+public interface MedicoVeterinarioRepository extends JpaRepository<MedicoVeterinario, Integer> {
     // Graças à herança JOINED, o Spring sabe fazer o JOIN correto
     // entre a tabela usuario e medico_veterinario automaticamente.
 }

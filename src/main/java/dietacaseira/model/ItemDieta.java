@@ -23,7 +23,7 @@ public class ItemDieta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_item_dieta")
-    private Long id; 
+    private Integer id; 
 
     // SQL: DECIMAL(10,4)
     @Column(nullable = false, precision = 10, scale = 4) 

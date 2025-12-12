@@ -6,7 +6,7 @@ import dietacaseira.model.Usuario;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     
     // O Spring gera o SQL: SELECT * FROM usuario WHERE email = ?
     Optional<Usuario> findByEmail(String email);

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import dietacaseira.model.NutrienteReferencia;
 
 @Repository
-public interface NutrienteReferenciaRepository extends JpaRepository<NutrienteReferencia, Long> {
+public interface NutrienteReferenciaRepository extends JpaRepository<NutrienteReferencia, Integer> {
 }

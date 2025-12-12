@@ -15,6 +15,6 @@ public class ComposicaoNutricionalID implements Serializable {
     // Os nomes aqui devem bater com os nomes dos atributos na classe principal
     // que usarem @MapsId, ou simplesmente serem os tipos Long correspondentes.
     
-    private Long idIngrediente;
-    private Long idNutrienteReferencia; 
+    private Integer idIngrediente;
+    private Integer idNutrienteReferencia; 
 }
