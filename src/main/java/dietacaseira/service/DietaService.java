@@ -17,9 +17,6 @@ public class DietaService {
     @Autowired
     private DietaRepository dietaRepository;
 
-    @Autowired
-    private NutricaoService nutricaoService;
-
     @Transactional
     public Dieta criarDieta(Pet pet, String tipo, List<ItemDieta> itens) {
         
