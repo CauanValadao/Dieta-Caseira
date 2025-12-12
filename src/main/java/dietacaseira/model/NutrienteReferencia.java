@@ -7,11 +7,17 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
-import dietacaseira.enums.TipoNutriente;
+import lombok.NoArgsConstructor;
+
+// Crie este Enum no pacote enums depois: TipoNutriente { MINERAL, VITAMINA, AMINOACIDO }
+import dietacaseira.enums.TipoNutriente; 
 
 @Data
+@NoArgsConstructor
 @Entity
+@Table(name = "nutriente_referencia") // Boa prática explicitar o nome
 public class NutrienteReferencia {
     
     @Id
@@ -19,11 +25,13 @@ public class NutrienteReferencia {
     @Column(name = "id_nutriente_referencia")
     private Long id;
 
+    @Column(nullable = false, length = 45)
     private String nome;
 
-    @Column(name = "unidade_padrao")
-    private String unidadeMedida;
+    @Column(name = "unidade_padrao", nullable = false, length = 45)
+    private String unidadePadrao; // ex: "mg", "g", "UI"
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TipoNutriente tipo;
 }

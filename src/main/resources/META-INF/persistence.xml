@@ -12,7 +12,7 @@
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/NOME DO BANCO AQUI?useTimezone=true&amp;serverTimezone=UTC" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
             
-            <property name="jakarta.persistence.jdbc.password" value="SENHA-AQUI" />
+            <property name="jakarta.persistence.jdbc.password" value="SENHA" />
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

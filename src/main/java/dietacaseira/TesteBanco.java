@@ -1,7 +1,5 @@
 package dietacaseira;
 
-import java.math.BigDecimal;
-
 import dietacaseira.model.Ingrediente;
 import dietacaseira.util.JPAUtil;
 import jakarta.persistence.EntityManager;
