@@ -31,3 +31,77 @@ Atualmente, o projeto encontra-se na fase de **Prototipação** (MVP), focando n
 
 ---
 *Projeto interdisciplinar envolvendo Ciência da Computação e Medicina Veterinária.*
+
+## ⚠️ Compilação - Nota sobre JDK
+
+Se você obtiver um erro como "java.lang.ExceptionInInitializerError: com.sun.tools.javac.code.TypeTag :: UNKNOWN" ao executar `mvn clean package`, isso normalmente significa que você está compilando com JDK 24 e Lombok (usado no projeto) não é compatível com essa versão do JDK.
+
+Solução recomendada: instale e use JDK 21 (LTS) para compilar/executar o projeto.
+
+Instalação e configuração (Windows):
+
+- Instalar Temurin (OpenJDK 21) com winget (requer Windows Package Manager):
+```powershell
+winget install -e --id EclipseAdoptium.Temurin.21.JDK
+```
+- Verificar instalações de JDK na máquina (exemplos):
+```powershell
+# lista as pastas em Program Files\Java
+Get-ChildItem 'C:\Program Files\Java' -Directory
+# ou em Eclipse Adoptium
+Get-ChildItem 'C:\Program Files\Eclipse Adoptium' -Directory
+```
+- Definir `JAVA_HOME` temporariamente nesta sessão (PowerShell):
+```powershell
+$Env:JAVA_HOME = 'C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot'
+$Env:Path = "$Env:JAVA_HOME\bin;$Env:Path"
+java -version
+javac -version
+mvn -v
+```
+- Definir `JAVA_HOME` permanentemente (usuário) — abra um novo terminal após isso:
+```cmd
+setx JAVA_HOME "C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot"
+setx PATH "%JAVA_HOME%\bin;%PATH%"
+```
+
+Após definir `JAVA_HOME`, verifique as versões e faça build:
+```powershell
+java -version
+javac -version
+mvn -v
+mvn clean package
+```
+
+Alternativa: se preferir manter JDK 24, atualize Lombok para uma versão que ofereça suporte a JDK 24 (se disponível), ou remova o uso de Lombok e gere getters/setters manualmente.
+Se ao executar `mvn clean package` você encontrar erros relacionados ao Lombok (ex.: "java.lang.ExceptionInInitializerError: com.sun.tools.javac.code.TypeTag :: UNKNOWN"), isso provavelmente está relacionado ao Lombok acessando APIs internas de `javac`. As opções são:
+
+- Use JDK 21 (recomendado) conforme instruções acima.
+- Tentar atualizar a versão do Lombok no `pom.xml` para uma versão com suporte a JDK 24, se houver.
+- Remover Lombok e gerar manualmente os getters/setters, ou usar outra abordagem de processamento de anotações que não dependa de APIs internas do `javac`.
+
+Comandos úteis para rodar o aplicativo (maven):
+```powershell
+# Executa a aplicação via JavaFX (plugin OpenJFX)
+mvn javafx:run
+# Ou executar via Spring Boot (aplicação Spring + JavaFX integrada)
+mvn spring-boot:run
+```
+
+Para executar especificamente a classe `Launcher` (útil para testes locais), use o plugin `exec`. No PowerShell, envolva a propriedade em aspas para evitar problemas de parsing:
+
+```powershell
+mvn "-Dexec.mainClass=dietacaseira.Launcher" exec:java
+```
+
+Ou, alternativamente em CMD/PowerShell sem aspas (quando o shell não estiver interpretando os caracteres):
+
+```powershell
+mvn -Dexec.mainClass=dietacaseira.Launcher exec:java
+```
+
+Também é possível executar o JAR reempacotado do Spring Boot direto (após `mvn package`):
+
+```powershell
+java -jar target/dieta-caseira-1.0-SNAPSHOT.jar
+```
